@@ -1,25 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import { useTimer, useStopwatch } from "react-timer-hook";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+
+function MyStopwatch() {
+    const {
+        seconds,
+        minutes,
+        hours,
+        days,
+        isRunning,
+        start,
+        pause,
+        reset,
+    } = useStopwatch({ autoStart: false });
+
+    const save = () => {
+        console.log({
+            minutes,
+            hours,
+            seconds,
+        });
+    };
+
+    return (
+        <div className="my-stopwatch">
+            <Typography variant="h1" className="stopwatch-time">
+                {" "}
+                <span>{hours}</span>:<span>{minutes}</span>:
+                <span>{seconds}</span>
+            </Typography>
+
+            <Button
+                className="stopwatch-button"
+                onClick={() => {
+                    if (isRunning) {
+                        return pause();
+                    }
+                    start();
+                }}
+                variant="outlined"
+            >
+                {isRunning ? "Pause" : "Start"}
+            </Button>
+            <Button
+                className="stopwatch-button"
+                variant="outlined"
+                onClick={save}
+            >
+                Save
+            </Button>
+            <Button
+                className="stopwatch-button"
+                variant="outlined"
+                onClick={reset}
+            >
+                Reset
+            </Button>
+        </div>
+    );
 }
-
-export default App;
+export default function App() {
+    return (
+        <div>
+            <MyStopwatch />
+        </div>
+    );
+}
