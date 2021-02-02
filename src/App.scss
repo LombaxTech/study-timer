@@ -4,7 +4,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    // background: #fffbd5; /* fallback for old browsers */
+    // background: -webkit-linear-gradient(
+    //     to right,
+    //     #b20a2cab,
+    //     #fffbd5
+    // ); /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(
+    //     to right,
+    //     #b20a2c41,
+    //     #fffbd5
+    // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    // display: none;
     .my-stopwatch {
         // background: green;
         padding: 10px;
@@ -20,4 +32,15 @@ body {
             width: 100%;
         }
     }
+}
+
+.chart-bar {
+    background: rgb(82, 0, 129) !important;
+    color: rgb(255, 0, 0) !important;
+}
+
+.x-axis-label {
+    // display: none;
+    // margin-top: 10px !important;
+    // background: yellow !important;
 }

@@ -6,6 +6,8 @@ import { Prompt } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+import { getTotalMinutes } from "./helperFunctions";
+
 function MyStopwatch() {
     const {
         seconds,
@@ -19,11 +21,15 @@ function MyStopwatch() {
     } = useStopwatch({ autoStart: false });
 
     const save = () => {
-        console.log({
-            minutes,
-            hours,
-            seconds,
-        });
+        // console.log({
+        //     minutes,
+        //     hours,
+        //     seconds,
+        // });
+
+        console.log(
+            `total minutes is ${getTotalMinutes(hours, minutes, seconds)}`
+        );
     };
 
     return (
